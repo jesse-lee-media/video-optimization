@@ -11,7 +11,7 @@ RUN go build -o video-optimization ./cmd/video-optimization
 
 FROM alpine:latest
 
-RUN apk add --no-cache ffmpeg ca-certificates
+RUN apk add --no-cache ffmpeg
 
 WORKDIR /app
 
