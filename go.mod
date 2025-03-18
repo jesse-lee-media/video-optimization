@@ -9,7 +9,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.29.9
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.62
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.78.1
-	github.com/google/uuid v1.6.0
 	go.uber.org/zap v1.27.0
 	golang.org/x/time v0.5.0
 )
