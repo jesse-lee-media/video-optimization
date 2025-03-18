@@ -1,26 +1,22 @@
-# Video Optimization Service
+# Video Service
 
-This is a simple video optimization service built with Go and Docker specifically for the CMS implementation of [Wedding Day Content Co.](https://weddingdaycontent.co). The service downloads videos from Cloudflare R2, optimizes them using [ffmpeg](https://www.ffmpeg.org/), generates thumbnails, and then uploads the processed files back to R2. It also provides endpoints for deleting files.
+This is a simple video service built with Go and Docker specifically for the CMS implementation of [Wedding Day Content Co.](https://weddingdaycontent.co). The service downloads videos from Cloudflare R2, generates thumbnails using [ffmpeg](https://www.ffmpeg.org/), and then uploads the thumbnails back to R2, while also providing an endpoint to delete files.
 
 ## Usage
 
 ### Endpoints
 
-#### `/optimize`
+#### `/thumbnail`
 
 ##### Method `POST`
 
-Accepts a JSON payload with the filename and options (such as desired resolution and format) to optimize a video.
+Accepts a JSON payload with the filename to generate a thumbnail for.
 
 Example `body`:
 
 ```json
 {
-  "filename": "example.mp4",
-  "options": {
-    "resolution": "720p",
-    "format": "webm"
-  }
+  "filename": "example.mp4"
 }
 ```
 
@@ -34,7 +30,7 @@ Example `body`:
 
 ```json
 {
-  "filenames": ["example_optimized.webm", "example_thumbnail.png"]
+  "filenames": ["example_thumbnail.png"]
 }
 ```
 
@@ -46,7 +42,7 @@ A simple health check endpoint that returns `OK`.
 
 ### Authentication
 
-Every request to `/optimize` and `/delete` must include an `Authorization` header.
+Every request to `/thumbnail` and `/delete` must include an `Authorization` header.
 
 Example `headers`:
 
