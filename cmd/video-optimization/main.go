@@ -15,7 +15,7 @@ func main() {
 	environment.Init()
 	s3.Init()
 
-	http.Handle("/optimize", middleware.Auth(http.HandlerFunc(handlers.Optimize)))
+	http.Handle("/thumbnail", middleware.Auth(http.HandlerFunc(handlers.Thumbnail)))
 	http.Handle("/delete", middleware.Auth(http.HandlerFunc(handlers.Delete)))
 	http.HandleFunc("/health", http.HandlerFunc(handlers.Health))
 
